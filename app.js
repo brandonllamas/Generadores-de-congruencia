@@ -3,7 +3,7 @@ const readline = require('readline');
 
 console.log("La formula x =75*xi mod(2^16 +1 )".green);
 console.log("================================");
-var data =[];
+var data = [];
 
 async function askQuestion(query) {
     const rl = readline.createInterface({
@@ -21,40 +21,40 @@ async function askQuestion(query) {
 
 
 
-const main = async () => {
+const main = async() => {
     // console.log("Hola mundo");
-    const frecuencia  = await askQuestion("Ingrese hasta donde quiere que se ejecute ");
-    const semilla= await askQuestion("Ingrese la semilla ");
-    
-      
-      for (let index = 0; index < frecuencia*1; index++) {
+    const frecuencia = await askQuestion("Ingrese hasta donde quiere que se ejecute ");
+    const semilla = await askQuestion("Ingrese la semilla ");
+
+
+    for (let index = 0; index < frecuencia * 1; index++) {
         // console.log(index);
-       
-        var exp =  Math.pow(2,16);
-        var formula = `X ${index} = 75* ${index}  mod(2^16 +1 )`;
+
+        var exp = Math.pow(2, 16);
         var x = 0;
         var x1 = 0;
-    
+
         if (index == 0) {
             x = semilla;
-        }else{
-            x =  data[index-1].x1;
+        } else {
+            x = data[index - 1].x1;
         }
-         x1 = 75 * x % (exp + 1);
-    
+        x1 = 75 * x % (exp + 1);
+        var formula = `X ${index} = 75* ${x} mod(2^16 +1 )`;
+
         // console.log(exp);
-        data.push(
-            {
-                'x':x*1,
-                'x1':x1,
-                formula
-                // result:result
-            }
-        )
+        data.push({
+            'x': x * 1,
+            'x1': x1,
+            formula
+            // result:result
+        })
     }
-    
+
     console.table(data)
-    
+    console.log("PRESENTADO POR:");
+    console.log("BRANDON LLAMAS LARIOS");
+    console.log("DIEGO CARDENAS");
 }
 
 main();
