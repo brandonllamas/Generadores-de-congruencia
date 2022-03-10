@@ -47,7 +47,7 @@ const main = async () => {
             {
                 'x':x*1,
                 'x1':x1,
-                formula,s
+                formula
                 // result:result
             }
         )
